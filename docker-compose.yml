@@ -1,0 +1,17 @@
+services:
+  bmc:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "${BMC_PORT:-8080}:${BMC_PORT:-8080}"
+    volumes:
+      - bmc-data:/app/data
+    restart: unless-stopped
+    environment:
+      - BMC_PORT=${BMC_PORT:-8080}
+      - AUTOGATE_PUBLIC=${AUTOGATE_PUBLIC:-}
+      - AUTOGATE_PRIVATE=${AUTOGATE_PRIVATE:-}
+
+volumes:
+  bmc-data:
