@@ -9,9 +9,7 @@ services:
       - bmc-data:/app/data
     restart: unless-stopped
     environment:
-      - BMC_PORT=${BMC_PORT:-8080}
-      - AUTOGATE_PUBLIC=${AUTOGATE_PUBLIC:-}
-      - AUTOGATE_PRIVATE=${AUTOGATE_PRIVATE:-}
+      - Example=${Example:-8080}
 
 volumes:
   bmc-data:
